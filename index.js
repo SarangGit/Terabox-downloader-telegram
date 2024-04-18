@@ -9,7 +9,7 @@ async function main() {
   bot.start(async (ctx) => {
     try {
       ctx.reply(
-        `Hi ${ctx.message.from.first_name},\n\nI can Download Files from Terabox.\n\nMade with ❤️ by @botcodes123\n\nSend any terabox link to download.`,
+        `Hi ${ctx.message.from.first_name},\n\nI can create Downloadable Links from Terabox Link.\n\nMade with ❤️ by Diskwala\n\nSend any terabox link to get downloadable link which you can upload to Diskwala Remote URL upload.`,
         Markup.inlineKeyboard([
           Markup.button.url(" Channel", "https://t.me/botcodes123"),
           Markup.button.url("Report bug", "https://t.me/Armanidrisi_bot"),
