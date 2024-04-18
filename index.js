@@ -5,11 +5,11 @@ async function main() {
   const express = require("express");
 
   const bot = new Telegraf(process.env.BOT_TOKEN);
-
+  const diskwalaURL = "www.diskwala.com"
   bot.start(async (ctx) => {
     try {
-      ctx.reply(
-        `Hi ${ctx.message.from.first_name},\n\nI can create Downloadable Links from Terabox Link.\n\nMade with ❤️ by Diskwala\n\nSend any terabox link to get downloadable link which you can upload to Diskwala Remote URL upload.`,
+      ctx.replyWithMarkdown(
+        `Hi ${ctx.message.from.first_name},\n\nI can create Downloadable Links from Terabox Link.\n\nMade with ❤️ by [Diskwala](${diskwalaURL})\n\nSend any terabox link to get downloadable link which you can upload to Diskwala Remote URL upload.`,
       );
     } catch (e) {
       console.error(e);
@@ -31,8 +31,8 @@ async function main() {
         const details = await getDetails(messageText);
         if (details && details.direct_link) {
           try {
-            ctx.reply(`Sending Files Please Wait.!!`);
-            sendFile(details.direct_link, ctx);
+            ctx.reply(`Here is the downloadable link: `, details.direct_link);
+            ctx.replyWithMarkdown(`Copy this URL and paste it in Remote URL in Diskwala [Dashboard](${diskwalaURL})`)
           } catch (e) {
             console.error(e); // Log the error for debugging
           }
