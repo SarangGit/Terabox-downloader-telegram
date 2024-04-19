@@ -28,8 +28,8 @@ async function main() {
         //const linkID = parts[parts.length - 1];
 
         ctx.reply("Fetching Link Data...")
-
-        const details = await getDetails(messageText.split("url=")[1]);
+        let fileID = messageText.split("/")
+        const details = await getDetails(fileID[fileID.length-1]);
         if (details && details.downloadLink) {
           try {
             ctx.reply(`Here is the downloadable link: \n${details.downloadLink}`);
