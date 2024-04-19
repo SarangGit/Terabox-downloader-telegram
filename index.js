@@ -29,7 +29,7 @@ async function main() {
 
         ctx.reply("Fetching Link Data...")
 
-        const details = await getDetails(messageText);
+        const details = await getDetails(messageText.split("url=")[1]);
         if (details && details.downloadLink) {
           try {
             ctx.reply(`Here is the downloadable link: \n${details.downloadLink}`);
