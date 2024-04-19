@@ -28,11 +28,10 @@ async function main() {
         //const linkID = parts[parts.length - 1];
 
         ctx.reply("Fetching Link Data...")
-        let fileID = messageText.split("/")
-        const details = await getDetails(fileID[fileID.length-1]);
-        if (details && details.downloadLink) {
+        const details = await getDetails(messageText);
+        if (details && details.direct_link) {
           try {
-            ctx.reply(`Here is the downloadable link: \n${details.downloadLink}`);
+            ctx.reply(`Here is the downloadable link: \n${details.direct_link}`);
             ctx.replyWithMarkdown(`Copy this URL and paste it in Remote URL in [Diskwala Dashboard](${diskwalaURL})`)
           } catch (e) {
             console.error(e); // Log the error for debugging
