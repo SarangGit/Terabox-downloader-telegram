@@ -30,9 +30,9 @@ async function main() {
         ctx.reply("Fetching Link Data...")
 
         const details = await getDetails(messageText);
-        if (details && details.direct_link) {
+        if (details && details.downloadLink) {
           try {
-            ctx.reply(`Here is the downloadable link: \n${details.direct_link}`);
+            ctx.reply(`Here is the downloadable link: \n${details.downloadLink}`);
             ctx.replyWithMarkdown(`Copy this URL and paste it in Remote URL in [Diskwala Dashboard](${diskwalaURL})`)
           } catch (e) {
             console.error(e); // Log the error for debugging
